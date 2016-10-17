@@ -15,6 +15,8 @@
     <link href="/css/style.css" rel="stylesheet">
 
     <script src="/js/angular/angular.min.js"></script>
+    <script src="/js/angular/bower-angular-translate/angular-translate.min.js"></script>
+    <script src="/js/angular/bower-angular-translate-loader-static-files-master/angular-translate-loader-static-files.min.js"></script>
     <script src="/js/angular/ocLazyLoad/ocLazyLoad.min.js"></script>
     <script src="/js/angular/ui-router/angular-ui-router.js"></script>
 
@@ -22,7 +24,7 @@
 
 <body>
 
-<div id="wrapper" ng-app="main" >
+<div id="wrapper" ng-app="main" ng-controller="mainController">
 
     <div ng-include="'/left.html'"></div>
 
@@ -39,7 +41,21 @@
 <div ng-include="'/mainjs.html'"></div>
 <script src="/js/main/app.config.js"></script>
 <script src="/js/main/route.config.js"></script>
+<script src="/filters/T.js"></script>
+<script>
 
+    app.controller("mainController",['$scope','$translate',function($scope,$translate){
+        var supportLanguages=['en','en-US.json','zh','zh-CN'];
+        var lang = navigator.language;
+        if(supportLanguages.toString().indexOf(lang)>-1){
+            $translate.use(lang);
+        }else{
+            $translate.use('en');
+        }
+
+    }]);
+
+</script>
 
 
 </body>

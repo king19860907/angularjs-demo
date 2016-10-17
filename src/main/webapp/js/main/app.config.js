@@ -2,7 +2,14 @@
  * Created by Administrator on 2016/6/22.
  */
 
-var app = angular.module('main', ["ui.router", "oc.lazyLoad"]);
+var app = angular.module('main', ["ui.router", "oc.lazyLoad","pascalprecht.translate"]);
+app.config(['$translateProvider',function($translateProvider){
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/i18n/',
+        suffix: '.json'
+    });
+}]);
 app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider","$locationProvider",
     function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
         app.controller = $controllerProvider.register;
