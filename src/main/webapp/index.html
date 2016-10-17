@@ -15,18 +15,20 @@
     <link href="/css/style.css" rel="stylesheet">
 
     <script src="/js/angular/angular.min.js"></script>
+    <script src="/js/angular/ocLazyLoad/ocLazyLoad.min.js"></script>
+    <script src="/js/angular/ui-router/angular-ui-router.js"></script>
 
 </head>
 
 <body>
 
-<div id="wrapper" ng-app="main" ng-controller="mainController">
+<div id="wrapper" ng-app="main" >
 
     <div ng-include="'/left.html'"></div>
 
     <div id="page-wrapper" class="gray-bg">
         <div ng-include="'/header.html'" class="row border-bottom"></div>
-        <div class="wrapper wrapper-content animated fadeInRight" ng-include="'/welcome.html'">
+        <div class="wrapper wrapper-content animated fadeInRight" ui-view>
 
         </div>
         <div ng-include="'/footer.html'" class="footer"></div>
@@ -35,14 +37,10 @@
 </div>
 
 <div ng-include="'/mainjs.html'"></div>
-
-<script>
-    angular.module('main', []).controller('mainController', function($scope) {
-
+<script src="/js/main/app.config.js"></script>
+<script src="/js/main/route.config.js"></script>
 
 
-    })
-</script>
 
 </body>
 
