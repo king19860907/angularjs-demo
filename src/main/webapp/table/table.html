@@ -26,7 +26,7 @@
 
     <div id="page-wrapper" class="gray-bg">
         <div ng-include="'/header.html'" class="row border-bottom"></div>
-        <div class="wrapper wrapper-content animated fadeInRight" ng-include="'/welcome.html'">
+        <div class="wrapper wrapper-content animated fadeInRight" ng-include="'/table/table-inner.html'" ng-controller="tableController">
 
         </div>
         <div ng-include="'/footer.html'" class="footer"></div>
@@ -37,13 +37,14 @@
 <div ng-include="'/mainjs.html'"></div>
 
 <script>
-    angular.module('main', []).controller('mainController', function($scope) {
+    var app = angular.module('main',[]);
+    app.controller('mainController', function($scope) {
 
 
 
     })
 </script>
-
+<script src="/js/table/table.js"></script>
 </body>
 
 </html>
